@@ -1,0 +1,31 @@
+{
+  "name": "ssb-schema-definitions",
+  "version": "1.0.0",
+  "description": "standardised schema definitions for JSON validation of ssb references",
+  "main": "index.js",
+  "dependencies": {
+    "is-my-json-valid": "^2.17.2",
+    "ssb-ref": "^2.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssbc/ssb-schema-definitions.git"
+  },
+  "keywords": [
+    "schema",
+    "definitions",
+    "ssb",
+    "json",
+    "validation"
+  ],
+  "author": "kyphae",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssbc/ssb-schema-definitions/issues"
+  },
+  "homepage": "https://github.com/ssbc/ssb-schema-definitions#readme"
+}
