@@ -18,14 +18,14 @@ module.exports = {
       type: 'object',
       required: ['link'],
       properties: {
-        link: { $ref: '#/definitions/messageId'   }
+        link: { $ref: '#/definitions/messageId' }
       }
     },
     feed: {
       type: 'object',
       required: ['name', 'link'],
       properties: {
-        link: { $ref: '#/definitions/feedId'   },
+        link: { $ref: '#/definitions/feedId' },
         name: { type: 'string'   }
       }
     },
@@ -33,23 +33,23 @@ module.exports = {
       type: 'object',
       required: ['link', 'name'],
       properties: {
-        link: { $ref: '#/definitions/blobId'   },
+        link: { $ref: '#/definitions/blobId' },
         name: { type: 'string'   }
       }
     },
     any: {
       oneOf: [
-        { type: 'null'   },
+        { type: 'null' },
         {
           type: 'array',
           items: {
             oneOf: [
-              { $ref: '#/definitions/feedId'   },
-              { $ref: '#/definitions/messageId'   },
-              { $ref: '#/definitions/blobId'   },
-              { $ref: '#/definitions/mentions/message'   },
-              { $ref: '#/definitions/mentions/feed'   },
-              { $ref: '#/definitions/mentions/blob'   }
+              { $ref: '#/definitions/feedId' },
+              { $ref: '#/definitions/messageId' },
+              { $ref: '#/definitions/blobId' },
+              { $ref: '#/definitions/mentions/message' },
+              { $ref: '#/definitions/mentions/feed' },
+              { $ref: '#/definitions/mentions/blob' }
             ]
           }
         }
@@ -58,13 +58,13 @@ module.exports = {
   },
   recps: {
     oneOf: [
-      { type: 'null'   },
+      { type: 'null' },
       {
         type: 'array',
         items: {
           oneOf: [
-            { $ref: '#/definitions/feedId'   },
-            { $ref: '#/definitions/mentions/feed'   }
+            { $ref: '#/definitions/feedId' },
+            { $ref: '#/definitions/mentions/feed' }
           ]
         }
       }
