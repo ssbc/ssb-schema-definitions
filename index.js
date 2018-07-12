@@ -73,7 +73,7 @@ module.exports = {
   encrypt: {
     box: {
       type: 'string',
-      pattern: '/^%[A-Za-z0-9\/+]*=\.box$/'
+      pattern: '/^[A-Za-z0-9\/+]*=\.box$/'
     }
   }
 }
