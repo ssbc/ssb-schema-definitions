@@ -59,7 +59,7 @@ module.exports = {
   root: { $ref: '#/definitions/messageId' },
   branch: {
     oneOf: [
-      { $ref: '#/definitions/messageId' }
+      { $ref: '#/definitions/messageId' },
       {
         type: 'array',
         items: {
