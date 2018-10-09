@@ -66,7 +66,9 @@ module.exports = {
             { $ref: '#/definitions/feedId' },
             { $ref: '#/definitions/mentions/feed' }
           ]
-        }
+        },
+        minItems: 1,
+        maxItems: 7
       }
     ]
   },
