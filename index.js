@@ -56,6 +56,20 @@ module.exports = {
       ]
     }
   },
+  root: { $ref: '#/definitions/messageId' },
+  branch: {
+    oneOf: [
+      { $ref: '#/definitions/messageId' },
+      {
+        type: 'array',
+        items: {
+          oneOf: [
+            { $ref: '#/definitions/messageId' }
+          ]
+        }
+      }
+    ]
+  },
   recps: {
     oneOf: [
       { type: 'null' },
