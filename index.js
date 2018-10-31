@@ -78,7 +78,7 @@ module.exports = {
         items: {
           oneOf: [
             { $ref: '#/definitions/feedId' },
-            { $ref: '#/definitions/mentions/feed' }
+            // { $ref: '#/definitions/mentions/feed' }
           ]
         },
         minItems: 1,
