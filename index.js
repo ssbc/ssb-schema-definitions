@@ -26,7 +26,7 @@ module.exports = {
       required: ['name', 'link'],
       properties: {
         link: { $ref: '#/definitions/feedId' },
-        name: { type: 'string'   }
+        name: { type: 'string' }
       }
     },
     blob: {
@@ -34,7 +34,7 @@ module.exports = {
       required: ['link', 'name'],
       properties: {
         link: { $ref: '#/definitions/blobId' },
-        name: { type: 'string'   }
+        name: { type: 'string' }
       }
     },
     any: {
