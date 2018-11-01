@@ -1,4 +1,5 @@
 const { msgIdRegex, feedIdRegex, blobIdRegex } = require('ssb-ref')
+if (!msgIdRegex || !feedIdRegex || !blobIdRegex ) throw new Error('ssb-schema-definitions is missing a regex!')
 
 module.exports = {
   messageId: {
@@ -23,7 +24,7 @@ module.exports = {
     },
     feed: {
       type: 'object',
-      required: ['name', 'link'],
+      required: ['link', 'name'],
       properties: {
         link: { $ref: '#/definitions/feedId' },
         name: { type: 'string' }
@@ -47,8 +48,8 @@ module.exports = {
               { $ref: '#/definitions/feedId' },
               { $ref: '#/definitions/messageId' },
               { $ref: '#/definitions/blobId' },
-              { $ref: '#/definitions/mentions/message' },
               { $ref: '#/definitions/mentions/feed' },
+              { $ref: '#/definitions/mentions/message' },
               { $ref: '#/definitions/mentions/blob' }
             ]
           }
