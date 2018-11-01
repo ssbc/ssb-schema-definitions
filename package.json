@@ -1,6 +1,6 @@
 {
   "name": "ssb-schema-definitions",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "standardised schema definitions for JSON validation of ssb references",
   "main": "index.js",
   "dependencies": {
