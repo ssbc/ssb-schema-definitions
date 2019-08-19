@@ -1,5 +1,7 @@
 const { msgIdRegex, feedIdRegex, blobIdRegex } = require('ssb-ref')
-if (!msgIdRegex || !feedIdRegex || !blobIdRegex ) throw new Error('ssb-schema-definitions is missing a regex!')
+const channelRegex = /^#[^\s]+/
+// TODO find a canonical ssb definition of channel
+if (!msgIdRegex || !feedIdRegex || !blobIdRegex) throw new Error('ssb-schema-definitions is missing a regex!')
 
 module.exports = {
   messageId: {
@@ -13,6 +15,10 @@ module.exports = {
   blobId: {
     type: 'string',
     pattern: blobIdRegex
+  },
+  channel: {
+    type: 'string',
+    pattern: channelRegex
   },
   mentions: {
     message: {
@@ -38,6 +44,13 @@ module.exports = {
         name: { type: 'string' }
       }
     },
+    channel: {
+      type: 'object',
+      required: ['link'],
+      properties: {
+        link: { $ref: '#/definitions/channel' }
+      }
+    },
     any: {
       oneOf: [
         { type: 'null' },
@@ -50,7 +63,8 @@ module.exports = {
               { $ref: '#/definitions/blobId' },
               { $ref: '#/definitions/mentions/feed' },
               { $ref: '#/definitions/mentions/message' },
-              { $ref: '#/definitions/mentions/blob' }
+              { $ref: '#/definitions/mentions/blob' },
+              { $ref: '#/definitions/mentions/channel' }
             ]
           }
         }
@@ -78,7 +92,7 @@ module.exports = {
         type: 'array',
         items: {
           oneOf: [
-            { $ref: '#/definitions/feedId' },
+            { $ref: '#/definitions/feedId' }
             // { $ref: '#/definitions/mentions/feed' }
           ]
         },

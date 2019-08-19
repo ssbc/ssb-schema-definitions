@@ -3,13 +3,8 @@
   "version": "1.1.5",
   "description": "standardised schema definitions for JSON validation of ssb references",
   "main": "index.js",
-  "dependencies": {
-    "is-my-json-valid": "^2.17.2",
-    "ssb-ref": "^2.13.6"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape tests/*.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -23,7 +18,15 @@
     "validation"
   ],
   "author": "kyphae",
-  "license": "ISC",
+  "license": "MIT",
+  "dependencies": {
+    "ssb-ref": "^2.13.6"
+  },
+  "devDependencies": {
+    "is-my-json-valid": "^2.20.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.11.0"
+  },
   "bugs": {
     "url": "https://github.com/ssbc/ssb-schema-definitions/issues"
   },
