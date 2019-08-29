@@ -101,6 +101,10 @@ module.exports = {
       }
     ]
   },
+  contentWarning: {
+    type: 'string',
+    minLength: 1
+  },
   encrypt: {
     box: {
       type: 'string',
