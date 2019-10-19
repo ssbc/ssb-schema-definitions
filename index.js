@@ -106,9 +106,27 @@ module.exports = {
     minLength: 1
   },
   encrypt: {
+    // TODO this needs testing and probably needs the following added:
+    // type: 'object'
+    // required: ['box'],
+    // properties: {
     box: {
       type: 'string',
-      pattern: '\.box$' // this was giving me grief so I brutally trimmed it
+      pattern: '\.box$' // was giving me grief so I brutally trimmed it
+    }
+  },
+  image: {
+    type: 'object',
+    required: ['blob', 'mimeType'],
+    properties: {
+      blob: { $ref: '#/definitions/blobId' },
+      mimeType: {
+        type: 'string',
+        pattern: '^image/.*$'
+      },
+      size: { type: 'integer' },
+      width: { type: 'integer' },
+      height: { type: 'integer' }
     }
   }
 }
