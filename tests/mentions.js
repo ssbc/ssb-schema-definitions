@@ -1,6 +1,6 @@
 const test = require('tape')
 const Validator = require('is-my-json-valid')
-const definitions = require('../')
+const Definitions = require('../')
 
 const messageMention = { link: '%ePSl+oM1qNuKOe13WBVAwKLETgCvs0/GLPrJsDCeNmA=.sha256', name: 'a new release of Patchfox' }
 const humynMention = { link: '@ye+QM09iPcDJD6YvQYjoQc7sLF/IFhmNbEqgdzQo3lQ=.ed25519', name: 'mixmix' }
@@ -15,7 +15,7 @@ test('isMention (any)', t => {
     properties: {
       mentions: { $ref: '#/definitions/mentions/any' }
     },
-    definitions
+    definitions: Definitions()
   })
 
   t.true(isMentionAny({ mentions: [ messageMention ] }), 'messageMention')

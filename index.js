@@ -3,7 +3,7 @@ const channelRegex = /^#[^\s]+/
 // TODO find a canonical ssb definition of channel
 if (!msgIdRegex || !feedIdRegex || !blobIdRegex) throw new Error('ssb-schema-definitions is missing a regex!')
 
-module.exports = {
+const definitions = {
   messageId: {
     type: 'string',
     pattern: msgIdRegex
@@ -78,7 +78,7 @@ module.exports = {
       {
         type: 'array',
         items: {
-          oneOf: [
+          oneOf: [ // TODO - remove this (write tests first)
             { $ref: '#/definitions/messageId' }
           ]
         }
@@ -91,7 +91,7 @@ module.exports = {
       {
         type: 'array',
         items: {
-          oneOf: [
+          oneOf: [ // TODO - remove this (write tests first)
             { $ref: '#/definitions/feedId' }
             // { $ref: '#/definitions/mentions/feed' }
           ]
@@ -106,7 +106,7 @@ module.exports = {
     minLength: 1
   },
   encrypt: {
-    // TODO this needs testing and probably needs the following added:
+    // TODO check if this needs the following (write tests):
     // type: 'object'
     // required: ['box'],
     // properties: {
@@ -129,4 +129,8 @@ module.exports = {
       height: { type: 'integer' }
     }
   }
+}
+
+module.exports = function Definitions () {
+  return definitions
 }

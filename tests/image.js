@@ -1,6 +1,6 @@
 const test = require('tape')
 const Validator = require('is-my-json-valid')
-const definitions = require('../')
+const Definitions = require('../')
 
 const blobId = '&1ZQM7TjQHBUEcdBijB6y7dkX047wCf4aXcjFplTjrJo=.sha256'
 
@@ -12,7 +12,7 @@ test('isImage', t => {
     properties: {
       avatar: { $ref: '#/definitions/image' }
     },
-    definitions
+    definitions: Definitions()
   })
 
   isValid({
