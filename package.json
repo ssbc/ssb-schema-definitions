@@ -20,6 +20,7 @@
   "author": "kyphae",
   "license": "MIT",
   "dependencies": {
+    "lodash.clone": "^4.5.0",
     "ssb-ref": "^2.13.6"
   },
   "devDependencies": {

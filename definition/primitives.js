@@ -21,7 +21,6 @@ module.exports = {
     pattern: channelRegex
   },
 
-
   // TODO - extract and test
   root: { $ref: '#/definitions/messageId' },
   branch: {
