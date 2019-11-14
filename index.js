@@ -92,8 +92,8 @@ module.exports = {
         type: 'array',
         items: {
           oneOf: [
-            { $ref: '#/definitions/feedId' }
-            // { $ref: '#/definitions/mentions/feed' }
+            { $ref: '#/definitions/feedId' },
+            { $ref: '#/definitions/mentions/feed' }
           ]
         },
         minItems: 1,
@@ -108,7 +108,7 @@ module.exports = {
   encrypt: {
     box: {
       type: 'string',
-      pattern: '\.box$' // this was giving me grief so I brutally trimmed it
+      pattern: '.box$' // this was giving me grief so I brutally trimmed it
     }
   }
 }
