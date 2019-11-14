@@ -1,6 +1,6 @@
 {
   "name": "ssb-schema-definitions",
-  "version": "1.2.0",
+  "version": "2.0.2",
   "description": "standardised schema definitions for JSON validation of ssb references",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
   "author": "kyphae",
   "license": "MIT",
   "dependencies": {
+    "lodash.clone": "^4.5.0",
     "ssb-ref": "^2.13.6"
   },
   "devDependencies": {

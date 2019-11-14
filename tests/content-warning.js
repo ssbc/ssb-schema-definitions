@@ -1,7 +1,6 @@
 const test = require('tape')
 const Validator = require('is-my-json-valid')
-const definitions = require('../')
-
+const Definitions = require('../')
 
 test('isContentWarning', (t) => {
   const isContentWarning = Validator({
@@ -11,10 +10,10 @@ test('isContentWarning', (t) => {
     properties: {
       contentWarning: { $ref: '#/definitions/contentWarning' }
     },
-    definitions
+    definitions: Definitions()
   })
 
-  const validWarning  = {
+  const validWarning = {
     type: 'post',
     text: 'I have a pet spider',
     contentWarning: 'spiders'
@@ -24,7 +23,7 @@ test('isContentWarning', (t) => {
 
   const missingWarning = {
     type: 'post',
-    text: 'I have a pet spider',
+    text: 'I have a pet spider'
   }
   t.false(isContentWarning(missingWarning), 'missing warning')
 
