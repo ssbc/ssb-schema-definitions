@@ -1,6 +1,6 @@
 const test = require('tape')
 const Validator = require('is-my-json-valid')
-const definitions = require('../')
+const Definitions = require('../')
 
 const feedId = '@0000000000000000000000000000000000000000000=.ed25519'
 
@@ -12,7 +12,7 @@ test('isValidRecps', (t) => {
     properties: {
       recps: { $ref: '#/definitions/recps' }
     },
-    definitions
+    definitions: Definitions()
   })
 
   const arrayRecps = {
