@@ -16,7 +16,7 @@ test('isMention (any)', t => {
       mentions: { $ref: '#/definitions/mentions/any' }
     },
     definitions: Definitions()
-  })
+  }, { verbose: true })
 
   t.true(isMentionAny({ mentions: [ messageMention ] }), 'messageMention')
   t.true(isMentionAny({ mentions: [ humynMention ] }), 'human mention')
@@ -38,6 +38,18 @@ test('isMention (any)', t => {
       { href: '%ePSl+oM1qNuKOe13WBVAwKLETgCvs0/GLPrJsDCeNmA=.sha256', name: 'some place' }
     ]
   }), 'non-standard mention (fail)')
+
+  //
+  t.true(isMentionAny({
+    "mentions": [
+      {
+        "link": "https://github.com/ssbc/ssb-db/blob/6c0cdd580b6166b106283e3f1745585e189252ce/create.js#L46",
+        "name": "https://github.com/ssbc/ssb-db/blob/6c0cdd580b6166b106283e3f1745585e189252ce/create.js#L46"
+      }
+    ]
+  }), 'manyverse link mention')
+
+  console.log(JSON.stringify(isMentionAny.errors, null, 2))
 
   t.end()
 })
