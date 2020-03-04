@@ -2,13 +2,15 @@ const primitives = require('./definition/primitives')
 const mentions = require('./definition/mentions')
 const contentWarning = require('./definition/content-warning')
 const image = require('./definition/image')
+const tombstone = require('./definition/tombstone')
 
 const definitions = Object.assign(
   {},
   primitives, // required
   { mentions },
   { contentWarning },
-  { image }
+  { image },
+  { tombstone }
 )
 
 module.exports = function Definitions () {
