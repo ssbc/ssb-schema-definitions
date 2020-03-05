@@ -2,8 +2,6 @@ const primitives = require('./definition/primitives')
 const mentions = require('./definition/mentions')
 const contentWarning = require('./definition/content-warning')
 const image = require('./definition/image')
-const tombstone = require('./definition/tombstone')
-const tangle = require('./definition/tangle')
 const tangles = require('./definition/tangles')
 
 const definitions = Object.assign(
@@ -12,9 +10,7 @@ const definitions = Object.assign(
   { mentions },
   { contentWarning },
   { image },
-  { tombstone },
-  { tangle },
-  { tangles }
+  { tangles },
 )
 
 module.exports = function Definitions () {

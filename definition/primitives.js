@@ -21,6 +21,64 @@ module.exports = {
     pattern: channelRegex
   },
 
+  string: {
+    type: 'object',
+    required: ['set'],
+    properties: {
+      set: { type: 'string' }
+    }
+  },
+  integer: {
+    type: 'object',
+    required: ['set'],
+    properties: {
+      set: { type: 'integer' }
+    }
+  },
+
+  tangle: {
+    oneOf: [
+      {
+        type: 'object',
+        required: ['root', 'previous'],
+        properties: {
+          root: { type: 'null' },
+          previous: { type: 'null' }
+        }
+      },
+      {
+        type: 'object',
+        required: ['root', 'previous'],
+        properties: {
+          root: { $ref: '#/definitions/messageId' },
+          previous: {
+            type: 'array',
+            items: { $ref: '#/definitions/messageId'},
+            minItems: 1
+          }
+        }
+      }
+    ]
+  },
+  tombstone: {
+    type: 'object',
+    required: ['set'],
+    properties: {
+      set: {
+        oneOf: [
+          { type: 'null' },
+          {
+            type: 'object',
+            required: ['date'],
+            properties: {
+              date: { type: 'integer' },
+              reason: { type: 'string' }
+            }
+          }
+        ]
+      }
+    }
+  },
   // TODO - extract and test
   root: { $ref: '#/definitions/messageId' },
   branch: {
