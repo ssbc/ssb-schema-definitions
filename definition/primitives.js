@@ -36,28 +36,30 @@ module.exports = {
     }
   },
 
+  nullTangle: {
+    type: 'object',
+    required: ['root', 'previous'],
+    properties: {
+      root: { type: 'null' },
+      previous: { type: 'null' }
+    }
+  },
+  fullTangle: {
+    type: 'object',
+    required: ['root', 'previous'],
+    properties: {
+      root: { $ref: '#/definitions/messageId'},
+      previous: {
+        type: 'array',
+        item: { $ref: '#/definitions/messageId'},
+        minItems: 1
+      }
+    }
+  },
   tangle: {
     oneOf: [
-      {
-        type: 'object',
-        required: ['root', 'previous'],
-        properties: {
-          root: { type: 'null' },
-          previous: { type: 'null' }
-        }
-      },
-      {
-        type: 'object',
-        required: ['root', 'previous'],
-        properties: {
-          root: { $ref: '#/definitions/messageId' },
-          previous: {
-            type: 'array',
-            items: { $ref: '#/definitions/messageId'},
-            minItems: 1
-          }
-        }
-      }
+      { $ref: '#/definitions/nullTangle'},
+      { $ref: '#/definitions/fullTangle'}
     ]
   },
   tombstone: {
