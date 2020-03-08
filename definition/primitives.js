@@ -20,67 +20,6 @@ module.exports = {
     type: 'string',
     pattern: channelRegex
   },
-
-  string: {
-    type: 'object',
-    required: ['set'],
-    properties: {
-      set: { type: 'string' }
-    }
-  },
-  integer: {
-    type: 'object',
-    required: ['set'],
-    properties: {
-      set: { type: 'integer' }
-    }
-  },
-
-  nullTangle: {
-    type: 'object',
-    required: ['root', 'previous'],
-    properties: {
-      root: { type: 'null' },
-      previous: { type: 'null' }
-    }
-  },
-  fullTangle: {
-    type: 'object',
-    required: ['root', 'previous'],
-    properties: {
-      root: { $ref: '#/definitions/messageId'},
-      previous: {
-        type: 'array',
-        item: { $ref: '#/definitions/messageId'},
-        minItems: 1
-      }
-    }
-  },
-  tangle: {
-    oneOf: [
-      { $ref: '#/definitions/nullTangle'},
-      { $ref: '#/definitions/fullTangle'}
-    ]
-  },
-  tombstone: {
-    type: 'object',
-    required: ['set'],
-    properties: {
-      set: {
-        oneOf: [
-          { type: 'null' },
-          {
-            type: 'object',
-            required: ['date'],
-            properties: {
-              date: { type: 'integer' },
-              reason: { type: 'string' }
-            }
-          }
-        ]
-      }
-    }
-  },
   // TODO - extract and test
   root: { $ref: '#/definitions/messageId' },
   branch: {

@@ -2,7 +2,10 @@ const primitives = require('./definition/primitives')
 const mentions = require('./definition/mentions')
 const contentWarning = require('./definition/content-warning')
 const image = require('./definition/image')
-const tangles = require('./definition/tangles')
+const tangle = require('./definition/tangle')
+const tombstone = require('./definition/tombstone')
+const nullTangle = require('./definition/nullTangle')
+const fullTangle = require('./definition/fullTangle')
 
 const definitions = Object.assign(
   {},
@@ -10,7 +13,10 @@ const definitions = Object.assign(
   { mentions },
   { contentWarning },
   { image },
-  { tangles },
+  { tangle },
+  { tombstone },
+  { nullTangle },
+  { fullTangle }
 )
 
 module.exports = function Definitions () {

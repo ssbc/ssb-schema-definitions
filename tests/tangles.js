@@ -8,7 +8,13 @@ test('isTangles', t => {
     type: 'object',
     required: ['tangles'],
     properties: {
-      tangles: { $ref: '#/definitions/tangles'}
+      tangles: {
+        artefact: { $ref: '#/definitions/tangle' },
+        profile: { $ref: '#/definitions/tangle' },
+        view: { $ref: '#/definitions/tangle' },
+        relationship: { $ref: '#/definitions/tangle' },
+        link: { $ref: '#/definitions/tangle' }
+      }
     },
     definitions: Definitions()
   })
@@ -45,22 +51,6 @@ test('isTangles', t => {
       artefact: fullProperties,
     }
   }), 'all tangles - full properties')
-
-  t.false(isValid({
-    tangles: {}
-  }), 'empty tangles')
   
-  t.false(isValid({
-    tangles: {
-      abcd: nullProperties
-    }
-  }), 'non existent tangle - null properties')
-
-  t.false(isValid({
-    tangles: {
-      abcd: fullProperties
-    }
-  }), 'non existent tangle - full properties')
-
   t.end()
 })
