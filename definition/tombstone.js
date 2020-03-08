@@ -9,7 +9,7 @@ module.exports = {
           type: 'object',
           required: ['date'],
           properties: {
-            date: { type: 'integer' },
+            date: { type: 'integer' }, // a Unix timestamp
             reason: { type: 'string' }
           }
         }

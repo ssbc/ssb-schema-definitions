@@ -70,5 +70,11 @@ The definitions is a getter (function) so that you can pull it and mutate it awi
 
 To see what definitions are available check out `index.js`.
 
-You can also see examples of how to use most of the definitions in the `tests/` filder
+You can also see examples of how to use most of the definitions in the `tests/` folder.
+At time of writing there's good test coverage here for fields:
+- `contentWarning`
+- `image`
+- `mentions`
+- `tangle`
+- `tombstone`
 

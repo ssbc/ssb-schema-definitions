@@ -4,8 +4,6 @@ const contentWarning = require('./definition/content-warning')
 const image = require('./definition/image')
 const tangle = require('./definition/tangle')
 const tombstone = require('./definition/tombstone')
-const nullTangle = require('./definition/nullTangle')
-const fullTangle = require('./definition/fullTangle')
 
 const definitions = Object.assign(
   {},
@@ -13,10 +11,8 @@ const definitions = Object.assign(
   { mentions },
   { contentWarning },
   { image },
-  { tangle },
   { tombstone },
-  { nullTangle },
-  { fullTangle }
+  tangle
 )
 
 module.exports = function Definitions () {
