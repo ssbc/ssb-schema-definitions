@@ -17,65 +17,39 @@ test('isTombstone', t => {
 
   isValid({
     tombstone: {
-      set: {
-        date: date,
-        reason: 'duplicate'
-      }
+      date: date,
+      reason: 'duplicate'
     }
   })
-  t.equal(isValid.errors, null, 'full set')
+  t.equal(isValid.errors, null, 'full tombstone')
 
   isValid({
-    tombstone: {
-      set: null
-    }
+    tombstone: null
   })
   t.equal(isValid.errors, null, 'null set')
 
-  t.false(
-    isValid({
-      tombstone: null
-    }), 'no set'
-  )
-
   t.true(
     isValid({
-      tombstone: {
-        set: {
-          date: date
-        }
-      }
+      tombstone: { date: date }
     }), 'minimal'
   )
 
   t.false(
     isValid({
-      tombstone: {
-        set: {
-          reason: 'duplicate'
-        }
-      }
+      tombstone: { reason: 'duplicate' }
     }), 'missing date'
   )
 
-
   t.false(
     isValid({
-      tombstone: {
-        set: {
-          date: 'dog'
-        }
-      }
+      tombstone: { date: 'dog' }
     }), 'bad date'
   )
 
   t.false(
     isValid({
       tombstone: {
-        set: {
-          date: date,
-          reason: 12345
-        }
+        set: { date: date, reason: 12345 }
       }
     }), 'bad reason'
   )
