@@ -20,15 +20,13 @@ const tangleUpdate = {
   }
 }
 
-const tangle = {
-  oneOf: [
-    { $ref: '#/definitions/tangleRoot' },
-    { $ref: '#/definitions/tangleUpdate' }
-  ]
-}
-
 module.exports = {
-  tangleRoot,
-  tangleUpdate,
-  tangle
+  root: tangleRoot,
+  update: tangleUpdate,
+  any: {
+    oneOf: [
+      { $ref: '#/definitions/tangle/root' },
+      { $ref: '#/definitions/tangle/update' }
+    ]
+  }
 }

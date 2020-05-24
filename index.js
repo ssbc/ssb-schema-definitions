@@ -12,7 +12,7 @@ const definitions = Object.assign(
   { contentWarning },
   { image },
   { tombstone },
-  tangle
+  { tangle }
 )
 
 module.exports = function Definitions () {

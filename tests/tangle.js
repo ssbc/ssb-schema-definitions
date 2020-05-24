@@ -11,7 +11,7 @@ test('isTangle', t => {
         type: 'object',
         required: ['tangle'],
         properties: {
-          tangle: { $ref: '#/definitions/tangleRoot' }
+          tangle: { $ref: '#/definitions/tangle/root' }
         },
         definitions: Definitions()
       })
@@ -46,7 +46,7 @@ test('isTangle', t => {
         type: 'object',
         required: ['tangle'],
         properties: {
-          tangle: { $ref: '#/definitions/tangleUpdate' }
+          tangle: { $ref: '#/definitions/tangle/update' }
         },
         definitions: Definitions()
       })
@@ -99,7 +99,7 @@ test('isTangle', t => {
         type: 'object',
         required: ['tangle'],
         properties: {
-          tangle: { $ref: '#/definitions/tangle' }
+          tangle: { $ref: '#/definitions/tangle/any' }
         },
         definitions: Definitions()
       })
@@ -157,11 +157,11 @@ test('isTangle', t => {
         required: ['tangles'],
         properties: {
           tangles: {
-            artefact: { $ref: '#/definitions/tangle' },
-            profile: { $ref: '#/definitions/tangle' },
-            view: { $ref: '#/definitions/tangle' },
-            relationship: { $ref: '#/definitions/tangle' },
-            link: { $ref: '#/definitions/tangle' }
+            artefact: { $ref: '#/definitions/tangle/any' },
+            profile: { $ref: '#/definitions/tangle/any' },
+            view: { $ref: '#/definitions/tangle/any' },
+            relationship: { $ref: '#/definitions/tangle/any' },
+            link: { $ref: '#/definitions/tangle/any' }
           }
         },
         definitions: Definitions()
