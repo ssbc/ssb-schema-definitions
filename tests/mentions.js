@@ -18,10 +18,10 @@ test('isMention (any)', t => {
     definitions: Definitions()
   })
 
-  t.true(isMentionAny({ mentions: [ messageMention ] }), 'messageMention')
-  t.true(isMentionAny({ mentions: [ humynMention ] }), 'human mention')
-  t.true(isMentionAny({ mentions: [ blobMention ] }), 'blob mention')
-  t.true(isMentionAny({ mentions: [ channelMention ] }), 'channel mention')
+  t.true(isMentionAny({ mentions: [messageMention] }), 'messageMention')
+  t.true(isMentionAny({ mentions: [humynMention] }), 'human mention')
+  t.true(isMentionAny({ mentions: [blobMention] }), 'blob mention')
+  t.true(isMentionAny({ mentions: [channelMention] }), 'channel mention')
 
   t.true(isMentionAny({
     mentions: [

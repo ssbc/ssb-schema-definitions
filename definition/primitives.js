@@ -35,17 +35,15 @@ module.exports = {
       }
     ]
   },
-
-  // TODO - extract and test
   recps: {
     oneOf: [
       { type: 'null' },
       {
         type: 'array',
         items: {
-          oneOf: [ // TODO - remove this (write tests first)
-            { $ref: '#/definitions/feedId' }
-            // { $ref: '#/definitions/mentions/feed' }
+          oneOf: [
+            { $ref: '#/definitions/feedId' },
+            { $ref: '#/definitions/mentions/feed' }
           ]
         },
         minItems: 1,
@@ -53,16 +51,8 @@ module.exports = {
       }
     ]
   },
-
-  // TODO - extract and test
-  encrypt: {
-    // TODO check if this needs the following (write tests):
-    // type: 'object'
-    // required: ['box'],
-    // properties: {
-    box: {
-      type: 'string',
-      pattern: '\.box$' // was giving me grief so I brutally trimmed it
-    }
+  box: {
+    type: 'string',
+    pattern: '\\.box$' // was giving me grief so I brutally trimmed it
   }
 }
