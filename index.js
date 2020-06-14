@@ -8,11 +8,13 @@ const tombstone = require('./definition/tombstone')
 const definitions = Object.assign(
   {},
   primitives, // required
-  { mentions },
-  { contentWarning },
-  { image },
-  { tombstone },
-  { tangle }
+  {
+    mentions,
+    contentWarning,
+    image,
+    tombstone,
+    tangle
+  }
 )
 
 module.exports = function Definitions () {

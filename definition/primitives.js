@@ -1,4 +1,5 @@
 const { msgIdRegex, feedIdRegex, blobIdRegex } = require('ssb-ref')
+const regexpToPattern = require('../regexp-to-pattern')
 const channelRegex = /^#[^\s]+/
 // TODO find a canonical ssb definition of channel
 if (!msgIdRegex || !feedIdRegex || !blobIdRegex) throw new Error('ssb-schema-definitions is missing a regex!')
@@ -6,19 +7,19 @@ if (!msgIdRegex || !feedIdRegex || !blobIdRegex) throw new Error('ssb-schema-def
 module.exports = {
   messageId: {
     type: 'string',
-    pattern: msgIdRegex
+    pattern: regexpToPattern(msgIdRegex)
   },
   feedId: {
     type: 'string',
-    pattern: feedIdRegex
+    pattern: regexpToPattern(feedIdRegex)
   },
   blobId: {
     type: 'string',
-    pattern: blobIdRegex
+    pattern: regexpToPattern(blobIdRegex)
   },
   channel: {
     type: 'string',
-    pattern: channelRegex
+    pattern: regexpToPattern(channelRegex)
   },
   // TODO - extract and test
   root: { $ref: '#/definitions/messageId' },

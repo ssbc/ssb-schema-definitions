@@ -17,42 +17,14 @@ const schema = {
       type: 'string',
       pattern: '^profile/.*$'
     },
-
     preferredName: { type: 'string' },
-
     avatarImage: { $ref: '#/definitions/image' }, // << reference a definition
-
     tangles: {
-      type: 'object',
-      required: ['profile'],
-      properties: {
-        profile: {
-          oneOf: [
-            { // for root message
-              type: 'object',
-              required: ['root', 'previous'],
-              properties: {
-                root: { type: 'null' },
-                previous: { type: 'null' }
-              }
-            },
-            { // for after the root message
-              type: 'object',
-              required: ['root', 'previous'],
-              properties: {
-                root: { $ref: '#/definitions/messageId' }, // <<
-                previous: {
-                  type: 'array',
-                  items: { $ref: '#/definitions/messageId' }, // <<
-                  minItems: 1
-                }
-              }
-            }
-          ]
-        }
-      }
+      group: { $ref: '#/definitions/tangle/any' },
+      profile: { $ref: '#/definitions/tangle/any' }
     }
   },
+  additionalProperties: false,
   definitions: Definitions() // attach the definitions
 }
 
