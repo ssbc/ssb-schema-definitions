@@ -1,4 +1,4 @@
-const { msgIdRegex, feedIdRegex, blobIdRegex } = require('ssb-ref')
+const { msgIdRegex, cloakedMsgIdRegex, feedIdRegex, blobIdRegex } = require('ssb-ref')
 const regexpToPattern = require('../regexp-to-pattern')
 const channelRegex = /^#[^\s]+/
 // TODO find a canonical ssb definition of channel
@@ -8,6 +8,10 @@ module.exports = {
   messageId: {
     type: 'string',
     pattern: regexpToPattern(msgIdRegex)
+  },
+  cloakedMessageId: {
+    type: 'string',
+    pattern: regexpToPattern(cloakedMsgIdRegex)
   },
   feedId: {
     type: 'string',

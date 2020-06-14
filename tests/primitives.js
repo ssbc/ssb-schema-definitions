@@ -4,6 +4,7 @@ const Definitions = require('..')
 
 const feedId = '@UQ8yZ/dCNDH6U6XhxqAB+WfHsM+IIwES4NNS/0tlTCU=.ed25519'
 const msgId = '%FiR41bB1CrsanZA3VgAzoMmHEOl8ZNXWn+GS5vW3E/8=.sha256'
+const cloakedMsgId = '%FiR41bB1CrsanZA3VgAzoMmHEOl8ZNXWn+GS5vW3E/8=.cloaked'
 const blobId = '&anZA3VgAzoMmFiR41bB1CrsHEOl8ZNXWn+GS5vW3E/8=.sha256'
 
 test('primitives', t => {
@@ -60,6 +61,27 @@ test('primitives', t => {
       t.false(
         isValid({ forkFrom: 'cat' }),
         'not msgId fails'
+      )
+    },
+
+    () => {
+      // CLOAKED MESSAGE ID
+      var schema = {
+        $schema: 'http://json-schema.org/schema#',
+        type: 'object',
+        properties: {
+          gathering: { $ref: '#/definitions/cloakedMessageId' }
+        },
+        definitions: Definitions()
+      }
+      var isValid = Validator(JSON.stringify(schema))
+      t.true(
+        isValid({ gathering: cloakedMsgId }),
+        'cloakedMsgId passes'
+      )
+      t.false(
+        isValid({ gathering: msgId }),
+        'not cloakedMsgId fails'
       )
     },
 
