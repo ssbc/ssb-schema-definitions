@@ -42,24 +42,6 @@ module.exports = {
   },
 
   // TODO - extract and test
-  recps: {
-    oneOf: [
-      { type: 'null' },
-      {
-        type: 'array',
-        items: {
-          oneOf: [ // TODO - remove this (write tests first)
-            { $ref: '#/definitions/feedId' }
-            // { $ref: '#/definitions/mentions/feed' }
-          ]
-        },
-        minItems: 1,
-        maxItems: 7
-      }
-    ]
-  },
-
-  // TODO - extract and test
   encrypt: {
     // TODO check if this needs the following (write tests):
     // type: 'object'

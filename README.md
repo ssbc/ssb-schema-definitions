@@ -21,8 +21,9 @@ const schema = {
     avatarImage: { $ref: '#/definitions/image' }, // << reference a definition
     tangles: {
       group: { $ref: '#/definitions/tangle/any' },
-      profile: { $ref: '#/definitions/tangle/any' }
-    }
+      profile: { $ref: '#/definitions/tangle/root' }
+    },
+    recps: { $ref: '#/definitions/recipients/box2' }
   },
   additionalProperties: false,
   definitions: Definitions() // attach the definitions
@@ -49,4 +50,5 @@ At time of writing there's good test coverage here for fields:
 - `mentions`
 - `tangle`
 - `tombstone`
+- `recps` (box1, box2/ envelope)
 

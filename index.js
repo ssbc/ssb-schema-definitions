@@ -4,6 +4,7 @@ const contentWarning = require('./definition/content-warning')
 const image = require('./definition/image')
 const tangle = require('./definition/tangle')
 const tombstone = require('./definition/tombstone')
+const recipients = require('./definition/recps')
 
 const definitions = Object.assign(
   {},
@@ -13,7 +14,9 @@ const definitions = Object.assign(
     contentWarning,
     image,
     tombstone,
-    tangle
+    tangle,
+    recps: recipients.box1, // legacy
+    recipients
   }
 )
 
