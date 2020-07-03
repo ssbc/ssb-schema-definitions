@@ -65,3 +65,40 @@ test('recipients/box2', t => {
 
   t.end()
 })
+
+test('recipients/any', t => {
+  var isValid = Validator({
+    $schema: 'http://json-schema.org/schema#',
+    type: 'object',
+    required: ['recps'],
+    properties: {
+      recps: { $ref: '#/definitions/recipients/any' }
+    },
+    definitions: Definitions()
+  })
+
+  const box1 = []
+  for (let i = 0; i < 7; i++) box1.push(FeedId())
+
+  const box2 = {}
+  box2.hasGroup = [groupId]
+  for (let i = 0; i < 16 - 1; i++) box2.hasGroup.push(FeedId())
+
+  box2.allFeed = []
+  for (let i = 0; i < 16; i++) box2.allFeed.push(FeedId())
+
+  const passes = [
+    box1,
+    box2.hasGroup,
+    box2.allFeed
+  ]
+
+  passes.forEach(recps => t.true(isValid({ recps })))
+
+  t.false(isValid({ recps: [msgId] }), 'msgId invalid')
+  t.false(isValid({ recps: [groupId, groupId] }), '[groupId, groupId] invalid')
+  t.false(isValid({ recps: [groupId, msgId] }), '[groupId, msgId] invalid')
+  t.false(isValid({ recps: [] }), '[] invalid')
+  t.false(isValid({ recps: 'cat' }), '"cat" invalid')
+  t.end()
+})

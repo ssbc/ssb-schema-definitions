@@ -22,5 +22,8 @@ const box2 = {
 
 module.exports = {
   box1,
-  box2
+  box2,
+  any: {
+    anyOf: [box1, box2]
+  }
 }
